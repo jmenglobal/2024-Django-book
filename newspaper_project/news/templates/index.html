@@ -1,0 +1,23 @@
+<!-- This line indicates that this template extends another template called'base.html'. -->
+{% extends 'base.html' %}
+<!-- This block tag is used to define a content block within the extendedtemplate. -->
+<!-- In this case, it's defining the 'content' block. -->
+
+{% block content %}
+
+<!-- Inside the 'content' block, we have an HTML heading tag displaying "Homepage". -->
+
+<h1>Homepage</h1>
+<!-- Now, we're using a for loop to iterate over a list of objects, which are posts. -->
+<!-- The 'object_list' the defalt variable contains a list of post objects. -->
+ 
+{% for post in object_list %}
+<!-- Inside the loop, we are displaying the content of each post. -->
+
+{{ post.text }}
+
+{% endfor %}
+
+<!-- This line marks the end of the 'content' block. -->
+
+{% endblock content %}
