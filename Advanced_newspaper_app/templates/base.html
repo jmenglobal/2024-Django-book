@@ -1,0 +1,38 @@
+{% load static %}
+<!-- This line is used to load the static files like CSS and JavaScript.
+It's a Django template tag that tells the template engine to include
+the necessary static files for the page. -->
+<html>
+<head>
+<title>Advanced Newspaper App</title>
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
+    <style>
+      body {
+        font-family: 'Crimson Pro', serif;
+        font-size: 24px;
+      }
+    </style>
+
+
+<link href="{% static 'base.css' %}" rel="stylesheet"> 
+
+</head>
+<body>
+<header>
+    <div>
+<!-- This is the header section of our web page. -->
+        <h1><a href="{% url 'home' %}">Advanced Newspaper App</a></h1>
+<!-- This is a link to the home page. The {% url 'home' %}
+template tag is used to generate the URL for the 'home' view in our Django application. -->
+    </div>
+</header>
+<div>
+<!-- This is the main content section of our web page. -->
+    {% block content %}
+
+    {% endblock content %}
+</div>
+</body>
+</html>
