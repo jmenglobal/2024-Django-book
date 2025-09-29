@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New article</h1>
+<!-- This is a simple HTML heading (h1) displaying "New article". -->
+<form action="" method="post">
+<!-- This is an HTML form element. The 'action' attribute is empty,
+indicating that the form will be submitted to the same URL it originated from.
+The 'method' attribute is set to "post", indicating that form data will be sent
+to the server as an HTTP POST request. -->
+{% csrf_token %}
+<!-- This is a Django template tag that includes a Cross-Site Request
+Forgery (CSRF) token in the form. CSRF tokens are a security measure to protect
+against malicious attacks. -->
+{{ form.as_p }}
+<!-- This is a Django template variable that renders the form fields in a
+paragraph format. The 'form' variable should be defined in the associated Django
+view, and it represents a form instance. The 'as_p' method renders the form
+fields in a simple, paragraph-based structure. -->
+<input type="submit" value="Save" />
+<!-- This is an HTML input element of type 'submit'. It creates a button
+with the label "Save" that, when clicked, submits the form to the server. -->
+</form>
+{% endblock content %}

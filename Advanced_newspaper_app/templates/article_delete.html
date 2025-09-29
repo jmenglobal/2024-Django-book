@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Delete article</h1>
+<form action="" method="post">
+
+{% csrf_token %}
+
+<p>Are you sure you want to delete "{{ article.title }}"?</p>
+
+<input type="submit" value="Confirm" />
+
+<!-- This is an HTML form. The 'action' attribute is empty, which means the form
+will submit to the same URL it's on. The 'method' is set to 'post', indicating
+that the form data will be sent securely in the HTTP request body. -->
+
+<!-- This is a Django template tag used to include a Cross-Site Request Forgery
+(CSRF) token in the form. It's a security measure to protect against CSRF
+attacks. -->
+<!-- This is a paragraph (p) displaying a message with the title of the article.
+The title is enclosed in double curly braces, indicating it's a Django template
+variable. The actual value will be inserted when the template is rendered. -->
+
+<!-- This is an HTML input element of type 'submit', which means it's a button
+that, when clicked, will submit the form. The text on the button is "Confirm". -->
+
+</form>
+{% endblock content %}

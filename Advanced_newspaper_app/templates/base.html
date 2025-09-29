@@ -24,8 +24,10 @@ the necessary static files for the page. -->
     <div>
 <!-- This is the header section of our web page. -->
         <h1><a href="{% url 'home' %}">Advanced Newspaper App</a></h1>
-<!-- This is a link to the home page. The {% url 'home' %}
-template tag is used to generate the URL for the 'home' view in our Django application. -->
+<!-- This is a link to the home page. The {% url 'home' %} template tag is used to generate the URL for the 'home' view in our Django application. -->
+
+<a href="{% url 'article_new' %}">+ New Article</a>
+
     </div>
 </header>
 <div>

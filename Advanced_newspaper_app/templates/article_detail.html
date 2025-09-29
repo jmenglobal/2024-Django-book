@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="post-entry">
+<div class="article-entry">
+
 <h2>{{ object.title }}</h2>
 <p>{{ object.body }}</p>
+
 </div>
-{% endblock content %}
+
+<!-- The following line creates a hyperlink to the 'article_edit' view, passing the primary key (pk) of the current article -->
+<a href="{% url 'article_edit' article.pk %}"> Edit Article </a>
+<p><a href="{% url 'article_delete' article.pk %}"> Delete Article Article</a></p>
+{% endblock content %}  
