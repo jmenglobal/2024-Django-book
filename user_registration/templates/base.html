@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>User Registration</title>
+</head>
+<body>
+<header>
+<h1><a href="{% url 'home' %}">Home Page</a></h1>
+</header>
+<div>
+
+{% if user.is_authenticated %}
+<!-- This checks if the user is authenticated, meaning they are logged in. -->
+
+<p>Hello {{ user.username }}!</p>
+
+<!-- If authenticated, it displays a greeting with the username of the
+logged-in user. -->
+<p><a href="{% url 'logout' %}">Log out</a></p>
+<!-- It also provides a link to the 'logout' URL, allowing the user to log
+out. -->
+{% else %}
+<!-- If the user is not authenticated (not logged in), it shows this block. -->
+
+<p>Please login.</p>
+<a href="{% url 'login' %}">Log In</a>
+
+<p><a href="{% url 'signup' %}">Sign UP</a></p>
+
+
+{% endif %}
+{% block content %}
+{% endblock content %}
+</div>
+</body>
+</html>
