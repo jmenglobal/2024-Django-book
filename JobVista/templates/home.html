@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock title %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">JobVista</h1>
+
+{% if user.is_authenticated %}
+
+<p>Welcome, {{ user.username }}!</p>
+
+{% else %}
+<p>You are not logged in.</p>
+{% endif %}
+
+<p class="lead">A Job listing website built with Django.</p>
+<p class="lead">
+<a class="btn btn-primary btn-lg" href="{% url 'listing_list' %}" role="button">
+View All listings
+</a>
+</p>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrinkto-fit=no">
+<title>JobVista</title>
+<!-- Add Bootstrap CSS link -->
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+body {
+background-color: #f8f9fa; /* Set a light background color for thebody */
+}
+.navbar {
+background-color: #007bff; /* Set the background color for the navbar*/
+}
+.navbar-brand, .navbar-nav .nav-link {
+color: white !important; /* Set text color to white for navbar links and brand */
+}
+.navbar-nav .nav-item.active {
+background-color: #0056b3 !important; /* Set the background color foractive link */
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="{% url 'home' %}">JobVista</a>
+
+{% if user.is_authenticated %}
+
+<ul class="navbar-nav mr-auto">
+<li class="nav-item"><a href="{% url 'listing_new' %}"> + New</a></li>
+</ul>
+{% endif %}
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" datatarget="#navbarNav" aria-controls="navbarNav" aria-expanded="false" arialabel="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item {% if request.path == '/login/' %}active
+
+{% endif %}">
+<a class="nav-link" href="{% url 'login' %}">Log In</a>
+</li>
+<li class="nav-item {% if request.path == '/signup/' %}active
+
+{% endif %}">
+<a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+</li>
+{% if user.is_authenticated %}
+<li class="nav-item">
+<a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+</li>
+{% endif %}
+</ul>
+</div>
+</nav>
+<main class="container mt-4">
+{% block content %}
+{% endblock content %}
+
+</main>
+<!-- Add Bootstrap JS and Popper.js scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script>
+</body>
+</html>
